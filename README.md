@@ -60,7 +60,7 @@ backend only stores the config, the app lists and an activity log.
 activityhide/
 ├── main.py                 # Decky backend: config / lists / log RPCs
 ├── py_modules/
-│   └── config_manager.py   # JSON config with backup + v1 migration, activity log
+│   └── config_manager.py   # JSON config with backup, activity log
 ├── src/
 │   ├── index.tsx           # definePlugin: starts the hider, patches the menu
 │   ├── hider.ts            # lifetime hook, hide/restore state machine, config cache

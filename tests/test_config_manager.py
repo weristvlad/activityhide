@@ -60,7 +60,7 @@ def test_log_respects_max_entries(tmp_path):
     assert entries[-1]["app_name"] == "App4"
 
 
-def test_legacy_v1_config_is_migrated(tmp_path):
+def test_unknown_keys_are_dropped_on_load(tmp_path):
     import json
 
     settings = tmp_path / "settings"
