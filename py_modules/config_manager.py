@@ -26,7 +26,7 @@ DEFAULT_CONFIG = {
     },
 }
 
-# Keys from the 1.0 config that no longer mean anything; dropped on load.
+# Keys not part of the schema; dropped on load.
 LEGACY_KEYS = ("status_fallback", "check_interval_ms", "startup_delay_ms", "patterns", "advanced")
 
 

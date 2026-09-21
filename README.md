@@ -4,10 +4,7 @@ A [Decky Loader](https://decky.xyz) plugin for the Steam Deck that hides the
 **"In non-Steam game: Discord"** line your friends see while you run a
 non-Steam app (Discord, Spotify, YouTube TV, emulators…).
 
-> **Vibecoded.** Written with an AI assistant. The first draft was reworked
-> against the real Steam client and is tested on a Steam Deck (history and the
-> verified Steam internals are in `docs/REVIEW.md`). It's a personal tool, not
-> a store-polished product, and it is not in the Decky plugin database.
+> Vibecoded with an AI assistant, tested on a Steam Deck. Personal tool, not in the Decky plugin database.
 
 ## How it works
 
@@ -74,7 +71,7 @@ activityhide/
 │   ├── App.tsx, ModeSelector.tsx, AppList.tsx, ActivityLog.tsx, Settings.tsx
 │   └── globals.d.ts        # SteamClient / appStore / collectionStore typings
 ├── tests/                  # pytest for the backend (fake `decky` module)
-├── docs/REVIEW.md          # project review, verified Steam internals, history
+├── docs/INTERNALS.md       # architecture and the Steam internals it relies on
 ├── plugin.json             # Decky manifest
 └── package.json
 ```
