@@ -1,11 +1,12 @@
 {
   "name": "activityhide",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Hide non-Steam game \"Playing Now\" status from Steam friends",
   "type": "module",
   "scripts": {
     "build": "shx rm -rf dist && rollup -c",
-    "watch": "rollup -c -w"
+    "watch": "rollup -c -w",
+    "package": "bash scripts/package.sh"
   },
   "devDependencies": {
     "@decky/rollup": "^1.0.1",
@@ -24,7 +25,10 @@
   },
   "pnpm": {
     "peerDependencyRules": {
-      "ignoreMissing": ["react", "react-dom"]
+      "ignoreMissing": [
+        "react",
+        "react-dom"
+      ]
     }
   }
 }

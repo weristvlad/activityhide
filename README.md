@@ -93,18 +93,66 @@ python3 -m venv .venv
 
 ## Installing on the Deck
 
-`~/homebrew/plugins` is owned by root (the loader runs as root):
+Not in the Decky store. Install it from the GitHub release instead.
+
+### Option A — Decky "Install from URL" (no keyboard, no terminal)
+
+1. Open the Quick Access Menu (… button) → **Decky** (plug icon) → **⚙ Settings**.
+2. **General** tab → turn on **Developer mode**.
+3. A **Developer** tab appears. In **Install Plugin from URL** paste:
+
+   ```
+   https://github.com/weristvlad/activityhide/releases/latest/download/ActivityHide.zip
+   ```
+
+   and press **Install**. Confirm the prompt.
+4. **ActivityHide** now shows up in the Decky plugin list. Developer mode can
+   be switched off again.
+
+To update, repeat step 3: Decky replaces the installed version.
+
+### Option B — Decky "Install from ZIP"
+
+Download `ActivityHide.zip` from the
+[latest release](https://github.com/weristvlad/activityhide/releases/latest)
+onto the Deck (browser in Desktop Mode, or copy it over), then in Decky's
+**Developer** tab use **Install Plugin from ZIP** and pick the file.
+
+### Option C — manual (Konsole / SSH)
+
+`~/homebrew/plugins` is owned by root, so this needs your sudo password.
 
 ```bash
-P=~/homebrew/plugins/ActivityHide
-sudo rm -rf $P && sudo mkdir -p $P
-sudo cp -r main.py plugin.json package.json dist py_modules $P/
-sudo chown -R root:root $P
+cd /tmp
+curl -L -o ActivityHide.zip \
+  https://github.com/weristvlad/activityhide/releases/latest/download/ActivityHide.zip
+sudo rm -rf ~/homebrew/plugins/ActivityHide
+sudo unzip -q ActivityHide.zip -d ~/homebrew/plugins/
+sudo chown -R root:root ~/homebrew/plugins/ActivityHide
 sudo systemctl restart plugin_loader.service
 ```
 
-Or enable Decky's Developer Mode and point it at the source folder for live
-rebuilds with `npm run watch`.
+### First use
+
+1. In the library, long-press (or press ☰ on) **Discord** → **ActivityHide: Enable**.
+2. Launch Discord. Friends now see you as offline instead of
+   "In non-Steam game: Discord".
+3. Start a real game on top: you are back online, showing that game. Quit it
+   and you are invisible again until Discord closes.
+
+The Quick Access Menu → **ActivityHide** panel shows the current state, the
+mode and a toggle per non-Steam app.
+
+## Releasing a new version
+
+```bash
+npm run package            # builds out/ActivityHide.zip locally
+git tag v2.0.1 && git push --tags
+```
+
+Pushing a `v*` tag runs `.github/workflows/release.yml`, which builds the zip
+and attaches it to a GitHub release, so the `releases/latest/download` URL
+above always points at the newest build.
 
 Config and log live in `~/homebrew/settings/ActivityHide/` and
 `~/homebrew/logs/ActivityHide/`.
