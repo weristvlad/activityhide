@@ -1,0 +1,16 @@
+# build / deps
+node_modules/
+dist/
+out/
+*.zip
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# local-only
+deck-relay-install.sh
+.DS_Store

@@ -1,0 +1,11 @@
+{
+  "name": "ActivityHide",
+  "author": "weristvlad",
+  "api_version": 1,
+  "flags": ["debug"],
+  "publish": {
+    "tags": ["privacy", "activity", "non-steam", "status"],
+    "description": "Hide non-Steam game \"Playing Now\" status from Steam friends",
+    "image": "res/icon.png"
+  }
+}
